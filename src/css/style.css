@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 858px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+}
+
+.button-container {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow-y: auto;
+}
+
+.modal-title {
+  margin-bottom: 30px;
+}
+
+.modal-content {
+  position: relative;
+  width: 513px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 21px 23px;
+  margin: auto;
+
+  background-color: #ffffff;
+}
+
+.modal-main {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-weight: 400;
+}
+
+.name, .description, .task-name {
+  margin-bottom: 10px;
+}
+
+.task-name {
+  width: 100%;
+  height: 30px;
+}
+
+.name, .description {
+  display: block;
+}
+
+.task-description {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 50px;
+  max-height: 50px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  text-align: right;
+}
+
+.cancel {
+  margin-right: 10px;
+}
+
+.button {
+  margin-left: auto;
+  padding: 16px 24px;
+
+  border-radius: 20px;
+  border: 1px solid black;
+  outline: none;
+  background-color: #ffffff;
+
+  cursor: pointer;
+}
+
+.list {
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.liItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.li-accord {
+  padding: 10px 10px 10px 46px;
+  border: 1px solid black;
+}
+
+.button-ctrl {
+  border: 1px solid black;
+  border-radius: 50%;
+  outline: none;
+  padding: 10px;
+
+  cursor: pointer;
+}
+
+.button-ctrl-container {
+  display: flex;
+  justify-content: space-between;
+  width: 73px;
+}
+
+.checkbox {
+  margin-right: 20px;
+}
+
+.meta-name {
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.meta-time {
+  margin-right: 40px;
+}
+
+.active {
+  display: block;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 5px;
+
+  top: 40px;
+  left: -12px;
+
+  background-color: lavender;
+  border-radius: 5px;
+}
+
+.ok {
+  position: relative;
+}

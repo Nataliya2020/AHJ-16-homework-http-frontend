@@ -1,0 +1,48 @@
+{
+  "name": "ajh-16-homework-http-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "lint": "eslint .",
+    "build": "webpack --config webpack.prod.js",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "preshow:coverage": "npm run coverage",
+    "show:coverage": "live-server coverage/lcov-report",
+    "preshow:dist": "npm run build",
+    "show:dist": "live-server dist"
+  },
+  "author": "Nataliya2020",
+  "license": "MIT",
+
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-jest": "^27.2.4",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "http-server": "^13.0.2",
+    "image-webpack-loader": "^8.0.1",
+    "jest": "^27.2.4",
+    "live-server": "^1.2.1",
+    "mini-css-extract-plugin": "^2.3.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "terser-webpack-plugin": "^5.2.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.3.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.18.1"
+  }
+}
