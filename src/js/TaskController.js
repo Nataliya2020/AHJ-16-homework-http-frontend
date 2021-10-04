@@ -89,8 +89,6 @@ export default class TaskController {
   }
 
   createTask(event) {
-    event.preventDefault();
-
     const formName = document.querySelector('.task-name');
     const formDescription = document.querySelector('.task-description');
 
@@ -111,17 +109,17 @@ export default class TaskController {
       const tooltip = new Tooltip('Заполните оба поля');
       tooltip.createTooltip(event);
 
-      event.target.closest('.form').querySelector('.task-name').addEventListener('input', () => {
-        if (event.target.closest('.form').querySelector('.tooltip')
-          && event.target.closest('.form').querySelector('.task-name').value) {
-          event.target.closest('.form').querySelector('.tooltip').remove();
+      event.target.closest('.form').querySelector('.task-name').addEventListener('input', (e) => {
+        if (e.target.closest('.form').querySelector('.tooltip')
+          && e.target.closest('.form').querySelector('.task-name').value) {
+          e.target.closest('.form').querySelector('.tooltip').remove();
         }
       });
 
-      event.target.closest('.form').querySelector('.task-description').addEventListener('input', () => {
-        if (event.target.closest('.form').querySelector('.tooltip')
-          && event.target.closest('.form').querySelector('.task-description').value) {
-          event.target.closest('.form').querySelector('.tooltip').remove();
+      event.target.closest('.form').querySelector('.task-description').addEventListener('input', (e) => {
+        if (e.target.closest('.form').querySelector('.tooltip')
+          && e.target.closest('.form').querySelector('.task-description').value) {
+          e.target.closest('.form').querySelector('.tooltip').remove();
         }
       });
     }
@@ -136,14 +134,15 @@ export default class TaskController {
   openModal(event) {
     event.preventDefault();
     new ModalForm('Добавить тикет').createForm();
-
     const buttonOK = document.querySelector('.ok');
-
-    buttonOK.addEventListener('click', () => this.createTask(event));
+    buttonOK.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.createTask(e);
+    });
 
     const buttonCancel = document.querySelector('.cancel');
-    buttonCancel.addEventListener('click', () => {
-      event.preventDefault();
+    buttonCancel.addEventListener('click', (e) => {
+      e.preventDefault();
       const modal = document.querySelector('.modal');
       modal.remove();
     });
@@ -177,16 +176,21 @@ export default class TaskController {
 
     const buttonOK = document.querySelector('.ok');
 
-    buttonOK.addEventListener('click', () => {
-      event.preventDefault();
-      sendRequest('GET', 'deleteTicket', id, {})
+    buttonOK.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const dataForm = {
+        id,
+      };
+
+      sendRequest('POST', 'deleteTicket', id, dataForm)
         .then(() => {
           this.closeModal();
-        }).catch((err) => {
+        })
+        .catch((err) => {
           throw new Error(err);
         });
     });
-
     const buttonCancel = document.querySelector('.cancel');
     buttonCancel.addEventListener('click', () => {
       event.preventDefault();
@@ -248,11 +252,14 @@ export default class TaskController {
 
         const buttonOK = document.querySelector('.ok');
 
-        buttonOK.addEventListener('click', () => this.sendEditTask(event, id));
+        buttonOK.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.sendEditTask(e, id);
+        });
 
         const buttonCancel = document.querySelector('.cancel');
-        buttonCancel.addEventListener('click', () => {
-          event.preventDefault();
+        buttonCancel.addEventListener('click', (e) => {
+          e.preventDefault();
           const modal = document.querySelector('.modal');
           modal.remove();
         });

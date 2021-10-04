@@ -10,6 +10,7 @@ export default function sendRequest(method, url, id = null, body = null) {
     }
 
     xhr.responseType = 'json';
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onload = () => {
       if (xhr.status >= 400) {
